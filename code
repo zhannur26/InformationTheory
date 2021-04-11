@@ -1,0 +1,5 @@
+with open("text.txt","r") as f:
+    txt = f.read()
+n = len(txt)
+uniq_symbols = set(txt)
+dictionary = {}
