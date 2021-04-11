@@ -1,9 +1,0 @@
-with open("text.txt","r") as f:
-    txt = f.read()
-n = len(txt)
-uniq_symbols = set(txt)
-dictionary = {}
-for i in uniq_symbols:
-    dictionary[i] = txt.count(i)
-for i in dictionary:
-    print (i, ":",round(dictionary[i]/len(txt),4))
