@@ -1,0 +1,15 @@
+symbols = [l + (''.join(''),) for l in sorted_dictionary]
+left = "0"
+right = "1"
+h=[]
+def Huffman(lst):
+# convert list of tuples to the list of lists
+    h = [[*row] for row in lst]
+    b = 1
+    while len(lst)>1:
+        # find less frequent symbol and remove this symbol from the list
+        min1 =list(min(lst, key = lambda t: t[1]))
+        lst.remove(min(lst, key = lambda t: t[1]))
+        # find second less frequent symbol and remove this symbol from the list
+        min2 = list(min(lst, key = lambda t: t[1]))
+        lst.remove(min(lst, key = lambda t: t[1]))
