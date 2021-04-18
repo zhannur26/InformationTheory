@@ -65,3 +65,15 @@ print(encoded)
 f = open("new.txt","w")
 f.write(encoded)
 f.close()
+
+
+original = len(txt)*8
+compr = len(encoded)
+compr_ratio = original/compr
+avg_code_length = 0
+for i in c:
+    avg_code_length+=i[1]*len(i[2])
+print('Number of bits in the original text:',original)
+print('Number of bits in the compressed text:',compr)
+print('Compression ratio:', compr_ratio)
+print('Average code length:',avg_code_length)
