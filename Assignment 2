@@ -50,3 +50,18 @@ def Huffman(lst):
 ans = Huffman(symbols)
 
 
+
+#convert list of tuples to the list of lists and sort in descending order by probability
+b = [[*row] for row in ans]
+c = sorted(b, key=lambda x: int(x[1]),reverse = True)
+for i in c:
+    print(i[0],'-',i[1],'-',i[2])
+encoded=''
+for i in txt:
+    for j in c:
+        if j[0]==i:
+            encoded+=j[2]
+print(encoded)
+f = open("new.txt","w")
+f.write(encoded)
+f.close()
