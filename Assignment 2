@@ -81,13 +81,25 @@ print('Average code length:',avg_code_length)
 
 
 #create dictionary: key - symbol, value - code
+path = {}
+for i in c:
+    path[i[0]] = i[2]
 with open("new.txt","r") as t:
     txt1 = t.read()
 print(txt1)
 
-
-
-if(d[1].startswith(symbol)):
+lst = [(k, v) for k, v in path.items()]
+h = [[*row] for row in lst]
+a = []
+symbol = ""
+symbols = ""
+b = 1
+print('Step',b)
+for c in encoded:
+    symbol+=c
+    symbols =""
+    for d in h:
+    if(d[1].startswith(symbol)):
             symbols+=d[0]
         if d[1] == symbol:
             b+=1
@@ -97,5 +109,35 @@ if(d[1].startswith(symbol)):
             print()
             print('Step',b)
             break
+    if symbol !="":        
+        print(symbol,':',symbols)
+        
+def decode(encoded,path):
+    '''This function return list of decoded symbols.
+    Bring binary digit one by one 
+    and create the sequence of binary digits
+    until it finds identical sequence in the value of dictionary
+    '''
+    lst = [(k, v) for k, v in path.items()]
+    h = [[*row] for row in lst]
+    a = []
+    symbol = ""
+    for c in encoded:
+        symbol+=c
+        for d in h:
+            if d[1] == symbol:
+                a.append(d[0])
+                symbol =""
+                break
+    return a
+def main():
+    decoded_text = decode(encoded,path)
+    text =""
+    print('Decoded text:')
+    print(text.join(decoded_text))
+    print('Original text:')
+    print(txt)
+    
+main()
             
             
